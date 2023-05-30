@@ -4,8 +4,8 @@ const app = express();
 
 const port = 3001
 
-app.use('/', () => {
-    console.log("hola mundo")
+app.use('/', (req, res) => {
+    res.send("Hola mundo")
 })
 
 app.listen(port, () => {
