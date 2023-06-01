@@ -1,12 +1,12 @@
 import User from "../schemas/users.schema.js";
 
 async function newUser(req, res) {
-  const { username, countrie } = req.body;
-
-  const newUser = User({ username, countrie });
+  const { username, country } = req.body;
+  const newUser = User({ username, country });
   await newUser.save();
 
-  return res.status(200).json({ newUser });
+  return res.status(200).json({ message: 'Usuario registrado!', user: newUser });
 }
 
 export { newUser };
+

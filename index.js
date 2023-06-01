@@ -3,12 +3,14 @@ import { getCountries } from "./src/api/countries.js";
 import user from "./src/routes/user.js";
 import connect from "./src/conexion.js";
 import { config } from "./src/config.js";
+import cors from 'cors';
 
 const app = express();
 connect();
 const port = config.PORT;
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/countries", async (req, res) => {
   const response = await getCountries();
